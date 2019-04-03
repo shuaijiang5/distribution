@@ -25,7 +25,7 @@ public class WxbGoodController {
 
 //    添加数据
     @RequestMapping("/add")
-    public void insert(WxbGood wxbGood){
+    public void insert(WxbGood wxbGood,String smfile,String smfile1,String smfile2){
          wxbGoodService.save(wxbGood);
     }
 
@@ -47,6 +47,7 @@ public class WxbGoodController {
         wxbGoodService.update(wxbGood);
     }
 
+//    上传图片
     @RequestMapping("/upload")
     public String upload(String username, MultipartFile uploadGood) throws IOException {
         System.out.println(username);

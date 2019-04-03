@@ -1,10 +1,12 @@
 package com.shuaijiang.market.entity;
 
 
+import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 //用户信息表
+@Data
 public class UserInfo{
 //  用户编号
   private String userId;

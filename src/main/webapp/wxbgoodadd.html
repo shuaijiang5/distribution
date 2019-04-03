@@ -450,20 +450,20 @@
 						
                           <form method="post" name="copy_form" id="copy_form" action="good/add" enctype="multipart/form-data">
 							<div class="widget-main">
-							     <input type="hidden" id="sku_str" name="sku_str" value="">
-							     <input type="hidden" id="ctype" name="ctype" value="custGood">
-							     <input type="hidden" id="sku_title" name="sku_title" value="">
-								 <input type="hidden" id="sku_cost" name="sku_cost" value="">
-								 <input type="hidden" id="sku_pmoney" name="sku_pmoney" value="">
-								 <input type="hidden" id="service_money" name="service_money" value="">
-							     <input type="hidden" id="sku_price" name="sku_price" value="">
-							     <input type="hidden" id="good_id" name="good_id" value="">
-							     <input type="hidden" id="copy_id" name="copy_id" value="">
-							     <input type="hidden" id="spc_id" name="spc_id" value="">
-								 <input type="hidden" id="zon_id" name="zon_id" value="">
-							     <input type="hidden" id="optype" name="optype" value="add_good">
-							     <input type="hidden" id="iswxpay" name="iswxpay" value="0">
-					             <input type="hidden" id="customer_id" name="customer_id" value="69609206">
+							     <!--<input type="hidden" id="sku_str" name="sku_str" value="">-->
+							     <!--<input type="hidden" id="ctype" name="ctype" value="custGood">-->
+							     <!--<input type="hidden" id="sku_title" name="sku_title" value="">-->
+								 <!--<input type="hidden" id="sku_cost" name="sku_cost" value="">-->
+								 <!--<input type="hidden" id="sku_pmoney" name="sku_pmoney" value="">-->
+								 <!--<input type="hidden" id="service_money" name="service_money" value="">-->
+							     <!--<input type="hidden" id="sku_price" name="sku_price" value="">-->
+							     <!--<input type="hidden" id="good_id" name="good_id" value="">-->
+							     <!--<input type="hidden" id="copy_id" name="copy_id" value="">-->
+							     <!--<input type="hidden" id="spc_id" name="spc_id" value="">-->
+								 <!--<input type="hidden" id="zon_id" name="zon_id" value="">-->
+							     <!--<input type="hidden" id="optype" name="optype" value="add_good">-->
+							     <!--<input type="hidden" id="iswxpay" name="iswxpay" value="0">-->
+					             <!--<input type="hidden" id="customer_id" name="customer_id" value="69609206">-->
 							
 								<table class="table table-bordered table-striped">
 								<tbody id="addgood">
@@ -472,7 +472,7 @@
 									  <span class="red">*</span><strong>商品名称：</strong>
 									</td>
 									<td>
-									 <input type="text" id="good_name" name="good_name" value="">
+									 <input type="text" id="good_name" name="goodName" value="">
 									</td>
 									
 								</tr>
@@ -480,7 +480,7 @@
 								<tr>
 									<td align="right"><span class="red">*</span><strong>商品类型：</strong></td>
 									<td>
-									   <select name="type_id" id="type_id" style="width:252px;font-size:14px" class="selectBox">
+									   <select name="typeId" id="type_id" style="width:252px;font-size:14px" class="selectBox">
 										  <option value="">请选择...</option>
 										       <option value="01">保健品</option>
 										       <option value="02">饰品</option>
@@ -497,13 +497,13 @@
 								<tr>
 									<td align="right"><span class="red">*</span><strong>排序编号：</strong></td>
 									<td>
-									  <input type="text" id="order_no" name="order_no" onkeyup="checkVal2(this);" value="">
+									  <input type="text" id="order_no" name="orderNo" onkeyup="checkVal2(this);" value="">
 									</td>
 								</tr>
 								<tr>
 									<td align="right"><span class="red">*</span><strong>购买作弊值：</strong></td>
 									<td>
-									  <input type="text" id="sell_num" name="sell_num" onkeyup="checkVal2(this);" value="">
+									  <input type="text" id="sell_num" name="sellNum" onkeyup="checkVal2(this);" value="">
 									</td>
 								</tr>
 
@@ -555,7 +555,7 @@
 								<tr>
 									<td align="right"><span class="red">*</span><strong>推广说明：</strong></td>
 									<td>
-									  <textarea id="promote_desc" name="promote_desc" style="width:540px; height: 160px;"></textarea>
+									  <textarea id="promote_desc" name="promoteDesc" style="width:540px; height: 160px;"></textarea>
 									</td>
 								</tr>
 								
@@ -629,7 +629,7 @@
 								<tr>
 									<td align="right"><span class="red">*</span><strong>微信文案：</strong></td>
 									<td>
-									  <input type="checkbox" class="ace" id="copy_1887427" name="gcopy" value="1887427">
+									  <input type="checkbox" class="ace" id="copy_1887427" name="copyIds" value="1887427">
 									  <span class="lbl">&nbsp;<a href="http://localhost:8081/cust/goods/add#">11</a></span><br>
 									</td>
 								</tr>
@@ -642,7 +642,7 @@
 								<tr>
 									<td align="right"><strong>空间文案：</strong></td>
 									<td>
-	                                    <input type="checkbox" class="ace" id="copy_39201701" name="zcopy_id" value="39201701"> 
+	                                    <input type="checkbox" class="ace" id="copy_39201701" name="zonId" value="39201701">
 										<span class="lbl">&nbsp;<a href="http://localhost:8081/cust/goods/add#">12</a></span><br/>
 									</td>
 								</tr>
@@ -650,14 +650,14 @@
 								<tr>
 									<td align="right"><strong>跳转说明：</strong></td>
 									<td>
-									   <textarea id="copy_desc" name="copy_desc" style="width:540px; height:80px;"></textarea>
+									   <textarea id="copy_desc" name="copyDesc" style="width:540px; height:80px;"></textarea>
 									</td>
 								</tr>
 								
 								<tr>
 									<td align="right"><strong>跳转地址：</strong></td>
 									<td>
-									  <input type="text" id="forward_link" name="forward_link" style="width:540px;" value="">
+									  <input type="text" id="forward_link" name="forwardLink" style="width:540px;" value="">
 									</td>
 								</tr>
 
@@ -761,7 +761,7 @@ jQuery(function($) {
         var baseUrl = '';
 		function submitData(){
 		    var gid = "";
-		    var url = "cgood!saveGood.ct";
+		    var url = "good/add";
 		    //var spc_id = getRadioValue('scopy_id');
 		    var spc_ids = getCheckBoxValue('scopy_id');
             var zon_ids = getCheckBoxValue('zcopy_id');
@@ -871,7 +871,7 @@ jQuery(function($) {
 		    }
 
 		    $.dialog.confirm('你确定要提交数据吗？', function(){
-//                 $.dialog.tips('数据保存中...',600,'loading.gif');
+                 $.dialog.tips('数据保存中...',600,'loading.gif');
 //                 var sform = document.copy_form;
 //		         if(sform){
 //				      sform.action = baseUrl+"/"+url;
@@ -889,6 +889,21 @@ jQuery(function($) {
 //			             sform.submit();
 //			          },500);
 //		        }
+				var form = new FormData(document.getElementById("copy_form"));
+				$.ajax({
+					url:"good/add",
+					type:"post",
+					data:form,
+                    processData:false,
+                    contentType:false,
+                    success:function(data){
+                        if(data=="1"){
+                            alert("上传成功")
+                        }else {
+                            alert("上传失败")
+                        }
+                    }
+				});
 			});
 
 		 }

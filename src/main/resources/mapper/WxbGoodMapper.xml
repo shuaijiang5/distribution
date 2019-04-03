@@ -35,53 +35,52 @@
         <result property="leixingId" column="leixing_id"></result>
         <result property="kfqq" column="kfqq"></result>
     </resultMap>
-    <!--配置关联查询所对应的的结果集-->
 
-    <resultMap id="wxbGoodAndWxbGoodSkuMap" type="com.shuaijiang.market.entity.WxbGood">
-        <id property="goodId" column="good_id"></id>
-        <result property="goodName" column="good_name"></result>
-        <result property="customerId" column="customer_id"></result>
-        <result property="goodPic" column="good_pic"></result>
-        <result property="goodPic1" column="good_pic1"></result>
-        <result property="goodPic2" column="good_pic2"></result>
-        <result property="promoteDesc" column="promote_desc"></result>
-        <result property="skuTitle" column="sku_title"></result>
-        <result property="skuCost" column="sku_cost"></result>
-        <result property="skuPrice" column="sku_price"></result>
-        <result property="skuPmoney" column="sku_pmoney"></result>
-        <result property="copyIds" column="copy_ids"></result>
-        <result property="copyDesc" column="copy_desc"></result>
-        <result property="forwardLink" column="forward_link"></result>
-        <result property="orderNo" column="order_no"></result>
-        <result property="typeId" column="type_id"></result>
-        <result property="tags" column="tags"></result>
-        <result property="state" column="state"></result>
-        <result property="createTime" column="create_time"></result>
-        <result property="toped" column="toped"></result>
-        <result property="recomed" column="recomed"></result>
-        <result property="topedTime" column="toped_time"></result>
-        <result property="recomedTime" column="recomed_time"></result>
-        <result property="spcId" column="spc_id"></result>
-        <result property="zonId" column="zon_id"></result>
-        <result property="sellNum" column="sell_num"></result>
-        <result property="website" column="website"></result>
-        <result property="iswxpay" column="iswxpay"></result>
-        <result property="isfdfk" column="isfdfk"></result>
-        <result property="leixingId" column="leixing_id"></result>
-        <result property="kfqq" column="kfqq"></result>
-        <!--配置集合属性，一对多-->
-        <!--ofType集合的泛型-->
-        <collection property="wxbGoodSkuList" ofType="com.shuaijiang.market.entity.WxbGoodSku">
-            <id property="skuId" column="sku_id"></id>
-            <result property="skuName" column="sku_name"></result>
-            <result property="skuCost" column="sku_cost"></result>
-            <result property="skuPrice" column="sku_price"></result>
-            <result property="skuPmoney" column="sku_pmoney"></result>
-            <result property="goodId" column="good_id"></result>
-            <result property="orderNo" column="order_no"></result>
-            <result property="serviceMoney" column="service_money"></result>
-        </collection>
-    </resultMap>
+    <!--<resultMap id="wxbGoodAndWxbGoodSkuMap" type="com.shuaijiang.market.entity.WxbGood">-->
+        <!--<id property="goodId" column="good_id"></id>-->
+        <!--<result property="goodName" column="good_name"></result>-->
+        <!--<result property="customerId" column="customer_id"></result>-->
+        <!--<result property="goodPic" column="good_pic"></result>-->
+        <!--<result property="goodPic1" column="good_pic1"></result>-->
+        <!--<result property="goodPic2" column="good_pic2"></result>-->
+        <!--<result property="promoteDesc" column="promote_desc"></result>-->
+        <!--<result property="skuTitle" column="sku_title"></result>-->
+        <!--<result property="skuCost" column="sku_cost"></result>-->
+        <!--<result property="skuPrice" column="sku_price"></result>-->
+        <!--<result property="skuPmoney" column="sku_pmoney"></result>-->
+        <!--<result property="copyIds" column="copy_ids"></result>-->
+        <!--<result property="copyDesc" column="copy_desc"></result>-->
+        <!--<result property="forwardLink" column="forward_link"></result>-->
+        <!--<result property="orderNo" column="order_no"></result>-->
+        <!--<result property="typeId" column="type_id"></result>-->
+        <!--<result property="tags" column="tags"></result>-->
+        <!--<result property="state" column="state"></result>-->
+        <!--<result property="createTime" column="create_time"></result>-->
+        <!--<result property="toped" column="toped"></result>-->
+        <!--<result property="recomed" column="recomed"></result>-->
+        <!--<result property="topedTime" column="toped_time"></result>-->
+        <!--<result property="recomedTime" column="recomed_time"></result>-->
+        <!--<result property="spcId" column="spc_id"></result>-->
+        <!--<result property="zonId" column="zon_id"></result>-->
+        <!--<result property="sellNum" column="sell_num"></result>-->
+        <!--<result property="website" column="website"></result>-->
+        <!--<result property="iswxpay" column="iswxpay"></result>-->
+        <!--<result property="isfdfk" column="isfdfk"></result>-->
+        <!--<result property="leixingId" column="leixing_id"></result>-->
+        <!--<result property="kfqq" column="kfqq"></result>-->
+        <!--&lt;!&ndash;配置集合属性，一对多&ndash;&gt;-->
+        <!--&lt;!&ndash;ofType集合的泛型&ndash;&gt;-->
+        <!--<collection property="wxbGoodSkuList" ofType="com.shuaijiang.market.entity.WxbGoodSku">-->
+            <!--<id property="skuId" column="sku_id"></id>-->
+            <!--<result property="skuName" column="sku_name"></result>-->
+            <!--<result property="skuCost" column="sku_cost"></result>-->
+            <!--<result property="skuPrice" column="sku_price"></result>-->
+            <!--<result property="skuPmoney" column="sku_pmoney"></result>-->
+            <!--<result property="goodId" column="good_id"></result>-->
+            <!--<result property="orderNo" column="order_no"></result>-->
+            <!--<result property="serviceMoney" column="service_money"></result>-->
+        <!--</collection>-->
+    <!--</resultMap>-->
 
     <sql id="wxbgoodcolumns">
         good_id,good_name, customer_id, good_pic, good_pic1, good_pic2, promote_desc, sku_title, sku_cost, sku_price, sku_pmoney, copy_ids, copy_desc, forward_link,

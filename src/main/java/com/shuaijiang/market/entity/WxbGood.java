@@ -1,13 +1,11 @@
 package com.shuaijiang.market.entity;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
-@Getter
-@Setter
+@Data
 //商品信息表
 public class WxbGood{
 //  主键ID
@@ -71,5 +69,4 @@ public class WxbGood{
   private Integer isfdfk;
   private Integer leixingId;
   private String kfqq;
-
 }
