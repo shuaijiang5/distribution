@@ -19,8 +19,25 @@ public class WxbGoodService {
     }
 
 //    添加数据
-    public void save(WxbGood wxbGood){
+    public String save(WxbGood wxbGood, MultipartFile photo, MultipartFile photo1, MultipartFile photo2){
+        String photos = Constants.photos(photo);
+        if (photos.trim().equals("") && photos != null){
+            wxbGood.setGoodPic(photos);
+        }
+        String photos1 = Constants.photos(photo1);
+        if (photos1.trim().equals("") && photos1 != null){
+            wxbGood.setGoodPic1(photos1);
+        }
+        String photos2 = Constants.photos(photo2);
+        if (photos2.trim().equals("") && photos2 != null){
+            wxbGood.setGoodPic2(photos2);
+        }
+        Date date = new Date();
+        wxbGood.setCreateTime(date);
+        String[] split = UUID.randomUUID().toString().split("-");
+        wxbGood.setGoodId(split[0]);
         wxbGoodDAO.save(wxbGood);
+        return "1";
     }
 
 //    根据id查询
