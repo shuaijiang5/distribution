@@ -25,8 +25,8 @@ public class WxbGoodController {
 
 //    添加数据
     @RequestMapping("/add")
-    public void insert(WxbGood wxbGood,String smfile,String smfile1,String smfile2){
-         wxbGoodService.save(wxbGood);
+    public String insert(WxbGood wxbGood, MultipartFile photo, MultipartFile photo1, MultipartFile photo2){
+         return wxbGoodService.save(wxbGood,photo,photo1,photo2);
     }
 
 //    预修改
