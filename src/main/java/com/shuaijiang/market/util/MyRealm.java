@@ -1,11 +1,10 @@
 package com.shuaijiang.market.util;
 
 
-import com.shuaijiang.market.entity.UserInfo;
-import com.shuaijiang.market.service.AuthService;
+import com.shuaijiang.market.entity.WxbMemeber;
+import com.shuaijiang.market.service.WxbMemeberService;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
-import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 
@@ -13,7 +12,7 @@ import javax.annotation.Resource;
 
 public class MyRealm extends AuthorizingRealm {
     @Resource
-    private AuthService authService;
+    private WxbMemeberService wxbMemeberService;
 
     @Override
     public String getName() {
@@ -22,18 +21,7 @@ public class MyRealm extends AuthorizingRealm {
 
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
-        //得到当前登录的唯一用户
-        UserInfo userInfo = (UserInfo) principals.iterator().next();
-        //得到所有的角色信息
-//        List<String> roleCodeList = authService.findAllRoleCodeById(user.getId());
-        //得到所有的权限信息
-//        List<String> authCodeList = authService.findAllAuthCodeById(user.getId());
-
-        //创建鉴权对象并将角色权限信息封装到对象中
-        SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();
-//        authorizationInfo.setRoles(new HashSet<String>(roleCodeList));
-//        authorizationInfo.setStringPermissions(new HashSet<String>(authCodeList));
-        return authorizationInfo;
+        return null;
     }
 
     @Override
@@ -41,17 +29,23 @@ public class MyRealm extends AuthorizingRealm {
         //使用用户密码验证方式
         UsernamePasswordToken usernamePasswordToken = (UsernamePasswordToken) token;
         //得到用户输入的用户名
-        String username = usernamePasswordToken.getUsername();
+        String name = usernamePasswordToken.getUsername();
         //得到用户输入的密码
         String password = new String(usernamePasswordToken.getPassword());
 
         //登录
-        UserInfo userInfo = authService.findByUsernameAndPwd(username,password);
-        if(userInfo != null){
-            // 创建并封装shiro需要的认证对象
-            SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(username,password,getName());
-            return authenticationInfo;
+        WxbMemeber wxbMemeber = wxbMemeberService.findName(name);
+        if(wxbMemeber != null){
+            if(MD5Utils.md5(password,wxbMemeber.getPasswordSalt()).equals(wxbMemeber.getPassword())){
+                // 创建并封装shiro需要的认证对象
+                SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(name,password,getName());
+                return authenticationInfo;
+            }else{
+                throw new AccountException("密码错误");
+            }
+        }else{
+            throw new UnknownAccountException("未知的账号");
         }
-        return null;
     }
 }
+

@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
-import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
@@ -29,31 +28,23 @@ public class WxbGoodController {
          return wxbGoodService.save(wxbGood,photo,photo1,photo2);
     }
 
+//    根据id查询有多少条数据
+    @RequestMapping("/findById")
+    public WxbGood findById(String id){
+        return wxbGoodService.findById(id);
+    }
+
 //    预修改
     @RequestMapping("/preUpdate")
-    public String preUpdate(Integer goodId){
+    public String preUpdate(String goodId){
         wxbGoodService.findById(goodId);
         return "/update";
     }
 
 //    修改数据
     @RequestMapping("/update")
-    public void update(WxbGood wxbGood,MultipartFile uploadGood) throws IOException {
-        String filename = uploadGood.getOriginalFilename();
-        uploadGood.transferTo(new File("c:/photofile/" + filename));
-        wxbGood.setGoodPic(filename);
-        wxbGood.setGoodPic1(filename);
-        wxbGood.setGoodPic2(filename);
+    public void update(WxbGood wxbGood) throws IOException {
         wxbGoodService.update(wxbGood);
-    }
-
-//    上传图片
-    @RequestMapping("/upload")
-    public String upload(String username, MultipartFile uploadGood) throws IOException {
-        System.out.println(username);
-        String filename = uploadGood.getOriginalFilename();
-        uploadGood.transferTo(new File("c:/photofile/" + filename));
-        return "/update";
     }
 
 //    删除数据

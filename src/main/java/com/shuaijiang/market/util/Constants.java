@@ -1,5 +1,13 @@
 package com.shuaijiang.market.util;
 
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.UUID;
+
+import static com.shuaijiang.market.util.Constants.path.PATH_IMAGES;
+
 /**
  * 常量
  */
@@ -15,12 +23,13 @@ public class Constants {
     }
     
     public final static class path{
-        public final static String PATH_IMAGES = "D:\\Hasee\\IdeaProjects1808\\tiny\\src\\main\\webapp\\images\\";
+        public final static String PATH_IMAGES = "D:\\IT\\feiq\\Recv Files\\Soft1808\\nginx-1.10.3\\images\\images\\";
     }
-    public static String photos(MultipartFile photo){
+
+    public static String photos(MultipartFile picture){
         String s = UUID.randomUUID().toString().replaceAll("-", "");
         try {
-            photo.transferTo(new File(PATH_IMAGES + s));
+            picture.transferTo(new File(PATH_IMAGES + s));
             return s;
         } catch (IOException e) {
             e.printStackTrace();

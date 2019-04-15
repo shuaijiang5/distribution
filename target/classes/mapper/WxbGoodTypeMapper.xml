@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shuaijiang.market.dao.WxbGoodTypeDAO">
+    <resultMap id="wxbgoodtypeMap" type="com.shuaijiang.market.entity.WxbGoodType">
+        <id property="typeId" column="type_id"></id>
+        <result property="typeName" column="type_name"></result>
+        <result property="parentId" column="parent_id"></result>
+        <result property="typeTag" column="type_tag"></result>
+        <result property="orderNo" column="order_no"></result>
+        <result property="alisaCode" column="order_no"></result>
+    </resultMap>
+
+    <sql id="wxbgoodtypecolumns">
+        type_id,type_name,parent_id,type_tag,order_no,order_no
+    </sql>
+
+    <!--查询所有-->
+    <select id="findAll" resultMap="wxbgoodtypeMap">
+        SELECT
+        <include refid="wxbgoodtypecolumns"></include>
+        FROM wxb_good_type
+    </select>
+
+</mapper>

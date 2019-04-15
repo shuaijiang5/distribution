@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shuaijiang.market.dao.WxbMemeberDAO">
+    <resultMap id="wxbmemeberMap" type="com.shuaijiang.market.entity.WxbMemeber">
+        <id column="memeber_id" property="memeberId"></id>
+        <result column="account" property="account"></result>
+        <result column="qq_num" property="qqNum"></result>
+        <result column="email" property="email"></result>
+        <result column="phone" property="phone"></result>
+        <result column="recom_user" property="recomUser"></result>
+        <result column="register_time" property="registerTime"></result>
+        <result column="pay_account" property="payAccount"></result>
+        <result column="name" property="name"></result>
+        <result column="password_salt" property="passwordSalt"></result>
+        <result column="visit_code" property="visitCode"></result>
+        <result column="use_recom" property="useRecom"></result>
+        <result column="level_code" property="levelCode"></result>
+        <result column="mid" property="mid"></result>
+        <result column="update_time" property="updateTime"></result>
+    </resultMap>
+
+    <sql id="wxbmemebercolumns">
+        memeber_id, account, qq_num, email, phone, recom_user,register_time, pay_account, `name`, password, password_salt, visit_code, use_recom, level_code, mid, update_time
+    </sql>
+
+    <select id="findAll" resultMap="wxbmemeberMap">
+        SELECT
+        <include refid="wxbmemebercolumns"></include>
+        FROM wxb_memeber
+    </select>
+
+    <select id="findName" resultMap="wxbmemeberMap">
+        SELECT
+        <include refid="wxbmemebercolumns"></include>
+        FROM wxb_memeber
+        WHERE name = #{name}
+    </select>
+</mapper>

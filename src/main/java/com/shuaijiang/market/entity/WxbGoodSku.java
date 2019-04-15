@@ -23,5 +23,5 @@ public class WxbGoodSku{
   private Integer orderNo;
 //  客服提成
   private String serviceMoney;
-
+  private WxbGood wxbGood;
 }

@@ -15,7 +15,7 @@ public interface WxbGoodDAO {
 //    添加数据
     void save(WxbGood wxbGood);
 //    根据id查询
-    WxbGood findById(Integer goodId);
+    WxbGood findById(String goodId);
 //    修改数据
     void update(WxbGood wxbGood);
 //    分页

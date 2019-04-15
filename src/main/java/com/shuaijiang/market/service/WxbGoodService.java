@@ -4,9 +4,12 @@ import com.shuaijiang.market.dao.WxbGoodDAO;
 import com.shuaijiang.market.entity.WxbGood;
 import com.shuaijiang.market.util.Constants;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
+import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class WxbGoodService {
@@ -20,20 +23,21 @@ public class WxbGoodService {
 
 //    添加数据
     public String save(WxbGood wxbGood, MultipartFile photo, MultipartFile photo1, MultipartFile photo2){
-        String photos = Constants.photos(photo);
-        if (photos.trim().equals("") && photos != null){
-            wxbGood.setGoodPic(photos);
+        String s = Constants.photos(photo);
+        if (s.trim().equals("") && s != null){
+            wxbGood.setGoodPic(s);
         }
-        String photos1 = Constants.photos(photo1);
-        if (photos1.trim().equals("") && photos1 != null){
-            wxbGood.setGoodPic1(photos1);
+        String s1 = Constants.photos(photo1);
+        if (s1.trim().equals("") && s1 != null){
+            wxbGood.setGoodPic1(s1);
         }
-        String photos2 = Constants.photos(photo2);
-        if (photos2.trim().equals("") && photos2 != null){
-            wxbGood.setGoodPic2(photos2);
+        String s2 = Constants.photos(photo2);
+        if (s2.trim().equals("") && s2 != null){
+            wxbGood.setGoodPic2(s2);
         }
-        Date date = new Date();
-        wxbGood.setCreateTime(date);
+        //添加时间
+        wxbGood.setCreateTime(new Date());
+        //生成一个唯一的id
         String[] split = UUID.randomUUID().toString().split("-");
         wxbGood.setGoodId(split[0]);
         wxbGoodDAO.save(wxbGood);
@@ -41,7 +45,7 @@ public class WxbGoodService {
     }
 
 //    根据id查询
-    public WxbGood findById(Integer goodId){
+    public WxbGood findById(String goodId){
         return wxbGoodDAO.findById(goodId);
     }
 

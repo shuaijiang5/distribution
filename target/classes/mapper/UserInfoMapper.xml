@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shuaijiang.market.dao.UserInfoDAO">
+    <resultMap id="userinfoMap" type="com.shuaijiang.market.entity.UserInfo">
+        <id column="user_id" property="userId"></id>
+        <result column="user_name" property="userName"></result>
+        <result column="account" property="account"></result>
+        <result column="password" property="password"></result>
+        <result column="remark" property="remark"></result>
+        <result column="user_type" property="userType"></result>
+        <result column="enabled" property="enabled"></result>
+        <result column="login_time" property="loginTime"></result>
+        <result column="role_id" property="roleId"></result>
+        <result column="self" property="self"></result>
+    </resultMap>
+
+    <sql id="userinfocolumns">
+        user_id,user_name,account,password,remark,user_type,enabled,login_time,role_id,self
+    </sql>
+
+    <select id="findAll" resultMap="userinfoMap">
+        SELECT
+        <include refid="userinfocolumns"></include>
+        FROM user_info
+    </select>
+
+    <select id="findById" resultMap="userinfoMap">
+        SELECT user_id, user_name, account, password, remark, user_type,enabled,login_time,role_id,self FROM user_info WHERE user_id = #{id}
+    </select>
+
+    <select id="findUsernameAndPassword" resultMap="userinfoMap">
+        SELECT
+        <include refid="userinfocolumns"></include>
+        FROM
+        user_info
+        WHERE user_name = #{username} AND password = #{password}
+    </select>
+
+    <insert id="insert">
+        INSERT INTO user_info(user_id, user_name, account, password, remark, user_type,enabled,login_time,role_id,self)
+        VALUES (#{userId},#{userName},#{account},#{password},#{remark},#{userType},#{enabled},#{loginTime},#{roleId},#{self})
+    </insert>
+
+    <update id="update">
+        UPDATE user_info
+    </update>
+    
+    <delete id="delete">
+        DELETE FROM user_info WHERE id = #{id}
+    </delete>
+</mapper>
